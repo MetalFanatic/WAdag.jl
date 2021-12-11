@@ -5,16 +5,18 @@ function cleanaddress(;wb=missing,ws=missing,rng=missing,teststate=false)
     regCt = r" Court"
     regPkwy = r" Parkway"
     regBlvd = r" Boulevard"
+    regSte = r" Suite"
     regDr = r" Drive"
     regLn = r" Lane"
     regHwy = r" Highway"
-    regSymbs = r"[,;:. -!@#$%^&()=<>\/]" # + and * cannot be filtered,[] array
+    regSymbs = r"[,;:. -!@#$%^&()=<>//]" # + and * cannot be filtered,[] array
     function regexreplace(x)
         x = replace.(x,regAve => " Ave")
         x = replace.(x,regSt => " St")
         x = replace.(x,regCt => " Ct")
         x = replace.(x,regPkwy => " Pkwy")
         x = replace.(x,regBlvd => " Blvd")
+        x = replace.(x,regSte => " Ste")
         x = replace.(x,regDr => " Dr")
         x = replace.(x,regLn => " Ln")
         x = replace.(x,regHwy => " Hwy")
