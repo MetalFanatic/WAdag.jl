@@ -1,6 +1,8 @@
+using Revise
+using Pkg
 using WAdag
 using Test
 
 @testset "WAdag.jl" begin
-    # Write your tests here.
+    @test cleanaddress(;wb="us-500-input.xlsx",ws="Sheet1",rng="A1:B501",teststate=true) == DataFrame(XLSX.readtable("us-500-input.xlsx","Sheet1")...)
 end
